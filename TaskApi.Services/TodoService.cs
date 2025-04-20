@@ -2,9 +2,9 @@
 
 namespace TaskApi.Services
 {
-    public class TodoService
+    public class TodoService : ITodoRepository
     {
-        public List<Todo> AllTodos()
+        public List<Todo> AllTodos() 
         {
             var todos = new List<Todo>();
 
