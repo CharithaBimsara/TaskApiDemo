@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaskApi.Models;
+using TaskApi.Services;
 
 namespace TaskApi.Controllers
 {
@@ -7,27 +9,28 @@ namespace TaskApi.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Task()
+        private TodoService _todoService;
+
+        public TasksController()
         {
-            var tasks = new string[] { "Task1", "Task2", "Task3", "Task4" };
-            return Ok(tasks);
+            _todoService = new TodoService();
         }
 
-        [HttpPost]
-        public IActionResult CreateTask() {
-            return Ok();
-        }
-        [HttpPut]
-        public IActionResult UpdateTask()
+        [HttpGet("{id?}")]
+        public IActionResult GetTodos(int? id)
         {
-            return Ok();
-        }
+            var myTodos = _todoService.AllTodos();
 
-        [HttpDelete]
-        public IActionResult DeleteTask() 
-        {
-            return Ok();
+            if (id is null) return Ok(myTodos);
+
+            myTodos = _todoService.AllTodos().Where(t => t.Id == id).ToList();
+
+            return Ok(myTodos);
         }
+       
+        
+
     }
+
+
 }
