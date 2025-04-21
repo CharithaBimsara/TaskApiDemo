@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaskApi.Services;
+using TaskApi.Services.Todos;
 
 namespace TaskApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/todos")]
     [ApiController]
-    public class TasksController : ControllerBase
+    public class TodosController : ControllerBase
     {
         private readonly ITodoRepository _todoService;
 
-        public TasksController(ITodoRepository repository)
+        public TodosController(ITodoRepository repository)
         {
             _todoService = repository;
         }

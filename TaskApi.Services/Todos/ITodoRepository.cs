@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaskApi.Models;
 
-namespace TaskApi.Services
+namespace TaskApi.Services.Todos
 {
     public interface ITodoRepository
     {

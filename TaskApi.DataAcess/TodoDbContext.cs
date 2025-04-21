@@ -11,6 +11,7 @@ namespace TaskApi.DataAcess
     public class TodoDbContext : DbContext
     {
         public DbSet<Todo> Todos { get; set; }
+        public DbSet<Author> Authors { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,14 +24,63 @@ namespace TaskApi.DataAcess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Todo>().HasData(new Todo
+            modelBuilder.Entity<Author>().HasData(new Author[]
             {
-                Id = 1,
-                Title = "Get books fro school - DB",
-                Description = "B",
-                CreatedDate = new DateTime(2024, 01, 01), // Static value
-                UpdatedDate = new DateTime(2024, 01, 06), // Static value
-                Status = TodoStatus.New
+                new Author
+                {
+                    Id = 1,
+                    FullName = "Charitha",
+                },
+                new Author
+                {
+                    Id = 2,
+                    FullName = "Bimsara",
+                },
+                new Author
+                {
+                    Id = 3,
+                    FullName = "Adikari",
+                },
+
+
+            });
+
+            modelBuilder.Entity<Todo>().HasData(new Todo[]
+            {
+                new Todo
+                {
+                    Id = 1,
+                    Title = "Get books fro school - DB",
+                    Description = "B",
+                    CreatedDate = new DateTime(2024, 01, 01), // Static value
+                    UpdatedDate = new DateTime(2024, 01, 06), // Static value
+                    Status = TodoStatus.New,
+                    AuthorId = 1,
+
+                },
+
+                new Todo
+                {
+                    Id = 2,
+                    Title = "Need Some grocceries",
+                    Description = "B",
+                    CreatedDate = new DateTime(2024, 01, 01), // Static value
+                    UpdatedDate = new DateTime(2024, 01, 06), // Static value
+                    Status = TodoStatus.New,
+                    AuthorId = 1,
+                },
+
+                new Todo
+                {
+                    Id = 3,
+                    Title = "Purchase Camera",
+                    Description = "B",
+                    CreatedDate = new DateTime(2024, 01, 01), // Static value
+                    UpdatedDate = new DateTime(2024, 01, 06), // Static value
+                    Status = TodoStatus.New,
+                    AuthorId = 2,
+                },
+
             });
         }
 

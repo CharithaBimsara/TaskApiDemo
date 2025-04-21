@@ -10,6 +10,8 @@
 
         public TodoStatus Status { get; set; }
 
+        public int AuthorId { get; set; }
+        public string? Author { get; set; }
     };
 
     
