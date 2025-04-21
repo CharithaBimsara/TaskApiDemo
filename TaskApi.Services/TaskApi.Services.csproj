@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TaskApi.DataAcess\TaskApi.DataAcess.csproj" />
     <ProjectReference Include="..\TaskApi.Models\TaskApi.Models.csproj" />
   </ItemGroup>
 
