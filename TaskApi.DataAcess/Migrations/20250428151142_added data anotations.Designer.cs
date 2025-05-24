@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskApi.DataAcess;
 
@@ -11,9 +12,11 @@ using TaskApi.DataAcess;
 namespace TaskApi.DataAcess.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
-    partial class TodoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250428151142_added data anotations")]
+    partial class addeddataanotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,11 +48,6 @@ namespace TaskApi.DataAcess.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("JobRole")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
                     b.Property<string>("Region")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -66,7 +64,6 @@ namespace TaskApi.DataAcess.Migrations
                             AddressNo = "10",
                             City = "Kandy",
                             FullName = "Charitha",
-                            JobRole = "Developer",
                             Region = "Sri lanka"
                         },
                         new
@@ -75,7 +72,6 @@ namespace TaskApi.DataAcess.Migrations
                             AddressNo = "10",
                             City = "Kandy",
                             FullName = "Bimsara",
-                            JobRole = "QA",
                             Region = "Sri lanka"
                         },
                         new
@@ -84,7 +80,6 @@ namespace TaskApi.DataAcess.Migrations
                             AddressNo = "10",
                             City = "Kandy",
                             FullName = "Adikari",
-                            JobRole = "Developer",
                             Region = "Sri lanka"
                         });
                 });

@@ -18,6 +18,17 @@ namespace TaskApi.Services.Authors
             return _context.Authors.ToList();
         }
 
+        public List<Author> GetAllAuthors(string job)
+        {
+            if (string.IsNullOrWhiteSpace(job))
+            {
+                return GetAllAuthors();
+            }
+            job = job.Trim();
+
+            return _context.Authors.Where(a => a.JobRole == job).ToList();
+        }
+
         public Author GetAuthor(int id)
         {
             return _context.Authors.Find(id);

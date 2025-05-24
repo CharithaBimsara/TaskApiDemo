@@ -9,6 +9,7 @@ namespace TaskApi.Services.Todos
 {
     public interface ITodoRepository
     {
-        public List<Todo> AllTodos();
+        public List<Todo> AllTodos(int authorId);
+        public Todo GetTodo (int authorid, int id);
     }
 }

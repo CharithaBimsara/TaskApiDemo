@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TaskApi.Models;
 
 namespace TaskApi.DataAcess
@@ -17,7 +12,7 @@ namespace TaskApi.DataAcess
         {
             var connection = "Server=localhost;Database=TodoDb;Trusted_Connection=True;;Encrypt=False";
 
-       
+
             optionsBuilder.UseSqlServer(connection);
 
         }
@@ -30,16 +25,33 @@ namespace TaskApi.DataAcess
                 {
                     Id = 1,
                     FullName = "Charitha",
+                    AddressNo = "10",
+                    City = "Kandy",
+                    Region = "Sri lanka",
+                    JobRole = "Developer"
+
+
                 },
                 new Author
                 {
                     Id = 2,
                     FullName = "Bimsara",
+                    AddressNo = "10",
+                    City = "Kandy",
+                    Region = "Sri lanka",
+                    JobRole = "QA"
+
+
                 },
                 new Author
                 {
                     Id = 3,
                     FullName = "Adikari",
+                    AddressNo = "10",
+                    City = "Kandy",
+                    Region = "Sri lanka",
+                    JobRole = "Developer"
+
                 },
 
 
